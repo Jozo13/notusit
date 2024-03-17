@@ -9,4 +9,12 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function returnData($data)
+    {
+        return response()->json([
+            'data' => $data,
+            'user' => auth()->user()
+        ]);
+    }
 }
