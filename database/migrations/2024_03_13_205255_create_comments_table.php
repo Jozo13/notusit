@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('text');
             $table->integer('product_id');
+            $table->integer('user_id');
         });
     }
 

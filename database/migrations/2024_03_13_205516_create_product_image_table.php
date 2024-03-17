@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('product_id');
+            $table->integer('image_id');
+            $table->boolean('main');
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products_images');
+        Schema::dropIfExists('product_image');
     }
 };
