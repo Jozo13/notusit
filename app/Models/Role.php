@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Image extends Model
+class Role extends Model
 {
     use HasFactory, HasApiTokens;
 
@@ -18,14 +17,15 @@ class Image extends Model
      * @var array<boolean, string>
      */
     protected $fillable = [
-        'url'
+        'url',
+        'main'
     ];
 
     /**
-     * The products that belong to the image.
+     * The users that belong to the role.
      */
-    public function products(): BelongsToMany
+    public function users(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(User::class);
     }
 }

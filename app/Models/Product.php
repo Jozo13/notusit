@@ -28,7 +28,7 @@ class Product extends Model
      */
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'product_category');
     }
 
     /**
@@ -36,7 +36,7 @@ class Product extends Model
      */
     public function images(): BelongsToMany
     {
-        return $this->belongsToMany(Image::class);
+        return $this->belongsToMany(Image::class, 'product_image')->withPivot('main');
     }
 
     /**

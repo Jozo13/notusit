@@ -28,4 +28,17 @@ class Category extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+    public function level()
+    {
+        $level = 0;
+        $category = $this;
+
+        while ($category->parent_id != null) {
+            $level++;
+            $category = Category::find($category->parent_id);
+        }
+
+        return $level;
+    }
 }

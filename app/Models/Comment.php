@@ -19,14 +19,23 @@ class Comment extends Model
     protected $fillable = [
         'title',
         'text',
-        'product_id'
+        'product_id',
+        'user_id'
     ];
 
     /**
      * Get the product that owns the comment.
      */
-    public function post(): BelongsTo
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    /**
+     * Get the user that owns the comment.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
